@@ -1,13 +1,13 @@
 version: '3.5'
 services:
   discovery:
-    image: arivukb/discoveryservices:latest
+    image: arivukb/discoveryservices:${BUILD_NUMBER} 
     container_name: discovery-service
     ports:
       - "8761:8761"
 
   gateway:
-    image: arivukb/gatewayservices:latest
+    image: arivukb/gatewayservices:${BUILD_NUMBER} 
     container_name: service-gateway
     ports:
       - "8765:8765"
@@ -17,14 +17,14 @@ services:
       - discovery
 
   zipkin-service:
-    image: arivukb/zipkinservices:latest
+    image: arivukb/zipkinservices:${BUILD_NUMBER} 
     container_name: zipkin-service
     
     ports:
       - "9411:9411"
 
   account-service:
-    image: arivukb/accountservices:latest
+    image: arivukb/accountservices:${BUILD_NUMBER} 
     container_name: account-service
     ports:
       - "2222:2222"
@@ -34,7 +34,7 @@ services:
       - discovery
 
   customer-service:
-    image: arivukb/customerservices:latest
+    image: arivukb/customerservices:${BUILD_NUMBER} 
     container_name: customer-service
     ports:
       - "3333:3333"
